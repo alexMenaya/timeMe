@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">timeme</string>
-    <string name="placeholder">Placeholder</string>
-    <string name="start">Start!</string>
+    <string name="app_name">TimeMe</string>
 </resources>

@@ -1,2 +1,0 @@
-# timeme
-Time Tracking App
