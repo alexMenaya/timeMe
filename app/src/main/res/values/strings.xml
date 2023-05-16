@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TimeMe</string>
     <string name="timer_screen_title">Timer</string>
+    <string name="projects_screen_title">Projects</string>
 </resources>

@@ -51,6 +51,7 @@ fun TimerScreen(
             )
         }
         Spacer(modifier = Modifier.height(20.dp))
+        Text(text = "Here como favorites/ most used/last task")
     }
 }
 
@@ -60,7 +61,9 @@ fun TimerDisplay(
     stopTimer: () -> Unit
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
@@ -87,7 +90,9 @@ fun InputField(
     startTimer: () -> Unit
 ){
     Row(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 4.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center
     ) {
