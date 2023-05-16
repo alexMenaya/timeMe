@@ -1,14 +1,14 @@
 package com.alexmenaya.timeme.timer
 
-sealed class StopWatchState {
+open class TimerState {
 
     data class Paused(
         val elapsedTime: Long
-    ): StopWatchState()
+    ): TimerState()
 
     data class Running(
         val startTime: Long,
         val elapsedTime: Long
-    ): StopWatchState()
+    ): TimerState()
 
 }

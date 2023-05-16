@@ -1,4 +1,4 @@
-package com.alexmenaya.timeme.ui
+package com.alexmenaya.timeme.ui.composables
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.padding
