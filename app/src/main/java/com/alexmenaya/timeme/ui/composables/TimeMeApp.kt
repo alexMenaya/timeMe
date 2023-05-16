@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.alexmenaya.timeme.R
+import com.alexmenaya.timeme.ui.MainViewModel
 import com.alexmenaya.timeme.ui.composables.screens.TimerScreen
 
 enum class TimeMeScreen(
@@ -31,7 +32,9 @@ fun TimeMeApp(
     val currentScreen = TimeMeScreen.valueOf(
         backStackEntry?.destination?.route ?: TimeMeScreen.TIMER.name
     )
-    val uiState by viewModel.uiState.collectAsState()
+    //val uiState by viewModel.uiState.collectAsState()
+    val timerValue by viewModel.timerValue.collectAsState()
+    val isTimerActive by viewModel.isTimerActive.collectAsState()
 
     Scaffold() { innerPaddingValuer ->
         NavHost(
@@ -40,7 +43,12 @@ fun TimeMeApp(
             modifier = modifier.padding(innerPaddingValuer)
         ) {
             composable(route = TimeMeScreen.TIMER.name) {
-                TimerScreen()
+                TimerScreen(
+                    timerValue = timerValue,
+                    isTimerActive = isTimerActive,
+                    startTimer = { viewModel.startTimer() },
+                    stopTimer = { viewModel.stopTimer() }
+                )
             }
         }
     }
