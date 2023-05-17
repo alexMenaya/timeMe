@@ -48,9 +48,9 @@ fun TimeMeApp(
     val currentScreen = TimeMeScreen.valueOf(
         backStackEntry?.destination?.route ?: TimeMeScreen.TIMER.name
     )
-    //val uiState by viewModel.uiState.collectAsState()
+    val uiState by viewModel.uiState.collectAsState()
     val timerValue by viewModel.timerValue.collectAsState()
-    val isTimerActive by viewModel.isTimerActive.collectAsState()
+
 
     Scaffold(
         topBar = {
@@ -65,9 +65,12 @@ fun TimeMeApp(
             composable(route = TimeMeScreen.TIMER.name) {
                 TimerScreen(
                     timerValue = timerValue,
-                    isTimerActive = isTimerActive,
+                    activeTask = uiState.currentTaskActive,
                     startTimer = { viewModel.startTimer() },
-                    stopTimer = { viewModel.stopTimer() }
+                    stopTimer = { viewModel.stopTimer() },
+                    setTaskName = { viewModel.setCurrentTaskName(it) },
+                    listOfTasks = uiState.listOfTasks,
+                    testing = {viewModel.testing()}
                 )
             }
         }

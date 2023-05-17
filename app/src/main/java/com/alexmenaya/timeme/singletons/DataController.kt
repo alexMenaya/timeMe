@@ -6,6 +6,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.alexmenaya.timeme.MainActivity
+import com.alexmenaya.timeme.data.Project
+import com.alexmenaya.timeme.data.ProjectDao
 import com.alexmenaya.timeme.data.Task
 import com.alexmenaya.timeme.data.TaskDao
 
@@ -25,14 +27,16 @@ object DataController {
 
 @Database(
     entities = [
-        Task::class
+        Task::class,
+        Project::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class RoomSingleton: RoomDatabase() {
 
     abstract fun taskDao(): TaskDao
+    abstract fun projectDao(): ProjectDao
 
     companion object {
 

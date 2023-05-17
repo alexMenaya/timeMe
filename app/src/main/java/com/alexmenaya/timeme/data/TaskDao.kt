@@ -15,6 +15,9 @@ interface TaskDao {
     @Query("SELECT * FROM task WHERE uid in (:uid)")
     fun withUid(uid: String): Task?
 
+    @Query("SELECT * FROM task WHERE time_ended = 0 AND is_deleted = 0")
+    fun selectOpenTask(): Task?
+
     @Update
     fun update(vararg  poll: Task)
 

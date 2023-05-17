@@ -17,13 +17,13 @@ class TimerOrchestrator(
     private val defaultTicker = "00:00:00"
     private val _ticker = MutableStateFlow(defaultTicker)
     val ticker: StateFlow<String> = _ticker
-    private val _isTimerActive = MutableStateFlow(false)
-    val isTimerActive: StateFlow<Boolean> = _isTimerActive
 
+    fun setInitTime(initTime: Long) {
+        TimerStateHolder.setInitTime(initTime)
+    }
     fun start() {
         if (job == null) startJob()
         TimerStateHolder.start()
-        _isTimerActive.value = true
     }
 
     private fun startJob() {
@@ -37,13 +37,11 @@ class TimerOrchestrator(
 
     fun pause() {
         TimerStateHolder.pause()
-        _isTimerActive.value = false
         stopJob()
     }
 
     fun stop() {
         TimerStateHolder.stop()
-        _isTimerActive.value = false
         stopJob()
         clearValue()
     }

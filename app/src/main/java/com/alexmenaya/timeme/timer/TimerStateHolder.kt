@@ -1,5 +1,7 @@
 package com.alexmenaya.timeme.timer
 
+import android.util.Log
+
 object TimerStateHolder {
 
     var currentState: TimerState = TimerState.Paused(0)
@@ -14,6 +16,11 @@ object TimerStateHolder {
 
     fun stop() {
         currentState = TimerState.Paused(0)
+    }
+
+    fun setInitTime(initTime: Long) {
+        currentState = TimerState.Paused(initTime)
+        Log.e("VERY IMPORTANT", "I am setting the time")
     }
 
     fun getStringTime(): String {
