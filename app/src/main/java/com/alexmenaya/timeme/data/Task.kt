@@ -20,6 +20,7 @@ data class Task(
     @ColumnInfo(name = "id_project") var id_project: String,
     @ColumnInfo(name = "time_started") var time_started: Long = 0, // In seconds
     @ColumnInfo(name = "time_ended") var time_ended: Long = 0,     // In seconds
+    @ColumnInfo(name = "is_favorite") var is_favorite: Boolean = false
 ): BaseEntity() {
 
     constructor(uid: String): this(uid,
@@ -30,7 +31,8 @@ data class Task(
         task_name = "",
         id_project = "",
         time_started = 0,
-        time_ended = 0
+        time_ended = 0,
+        is_favorite = false
     )
 
     fun updateMap(

@@ -69,7 +69,8 @@ fun TimeMeApp(
                     startTimer = { viewModel.startTimer() },
                     stopTimer = { viewModel.stopTimer() },
                     setTaskName = { viewModel.setCurrentTaskName(it) },
-                    listOfTasks = uiState.listOfTasks,
+                    listOfTasks = uiState.listOfTasks, // TODO: Check that here only finished tasks appear!!!
+                    listOfFavorites = uiState.listOfTasks,
                     testing = {viewModel.testing()}
                 )
             }
