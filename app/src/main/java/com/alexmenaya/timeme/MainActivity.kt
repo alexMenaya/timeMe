@@ -18,6 +18,7 @@ class MainActivity : ComponentActivity() {
 
         // Starting the timer
         // Other updates
+        // More updates
         DataController.bind(this)
         AppController.bind(this)
     }
