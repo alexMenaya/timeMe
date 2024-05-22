@@ -17,6 +17,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         // Starting the timer
+        // Other updates
         DataController.bind(this)
         AppController.bind(this)
     }
