@@ -23,6 +23,7 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun onStart() {
+        // Something interesting pre merge
         setContent {
             TimeMeTheme {
                 // A surface container using the 'background' color from the theme
